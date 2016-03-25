@@ -78,6 +78,29 @@ h1 {
     text-align:center;
 }
 
+.cuadroInicio {
+	position:absolute;
+	top:30%;
+	left:50%;
+	width:225px;
+	background-color: #33d6ff;
+	border-radius:2px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+}
+
+.solicitudDatos{
+	position:absolute;
+	top:34%;
+	left:50%;
+	width:225px;
+	text-align:center;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+}
+
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
