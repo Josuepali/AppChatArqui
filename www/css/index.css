@@ -78,17 +78,6 @@ h1 {
     text-align:center;
 }
 
-.solicitudDatos{
-	position:absolute;
-	top:34%;
-	left:50%;
-	width:225px;
-	text-align:center;
-	border-left-style: solid;
-	border-right-style: solid;
-	border-bottom-style: solid;
-}
-
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -136,4 +125,14 @@ h1 {
 	border-left-style: solid;
 	border-right-style: solid;
 	border-bottom-style: solid;
+}
+
+.button {
+	background-color: Green;
+	color: white;
+	border-radius:8px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 20px;
 }
