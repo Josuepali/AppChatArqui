@@ -126,3 +126,13 @@ h1 {
 	border-right-style: solid;
 	border-bottom-style: solid;
 }
+
+.button {
+	background-color: Green;
+	color: white;
+	border-radius:8px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 20px;
+}

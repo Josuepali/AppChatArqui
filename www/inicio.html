@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
 <html>
     <head>
         <!--
@@ -10,7 +10,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -22,29 +22,51 @@
 		<div id="deviceready" class="cuadroInicio">
 			<h1> Mensajes </h1>
 		</div>
-		<div id="deviceready" class="mostrarMensajes">
-			<div class="mensajes">
-				<br>
-				<p> sdjijifs </p>
-				<p> sjfnsdjifb </p>
-				<p> jsfnidb </p>
-				<br> <br> <br> <br> <br>
+		<form id="CuadroMensajes">
+			<div id="deviceready" class="mostrarMensajes">
+				<div class="mensajes" id="cargarMensajes">
+				</div>
+				<br><br>
+				<input id="datos" name="" placeholder="Escriba el msj..." required/></input>
+				<input type="submit" value="Enviar"/>
+				<br><br>
 			</div>
-			<input type="text" name="menssage">
-			<button class="button"> Enviar </button>
-			<br><br>
-		</div>
+		</form>
      </div>
+     <div id="Prueba"></div>
 	<div class="perfil">
 		<div class="imagenPerfil">
-			<img id=imagenes" src="img/joven.jpg">
+			<img id="imagenes" src="img/joven.jpg">
 		</div>
 		<div class="DatosUsuario">
 			<h2> Usuario </h2>
 			<p> Numero Telefono </p>
 		</div>
 	</div>
-        <script type="text/javascript" src="cordova.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io.connect("http://127.0.0.1:3000");
+			$(document).on("ready", inicio);
+
+			function inicio(){
+				$("#CuadroMensajes").on("submit", enviar);
+				socket.on("datos_servidor", recibir);
+			}
+			function enviar(e){
+				e.preventDefault();
+				var dato = $("#CuadroMensajes").find("#datos").val();
+				socket.emit("datos_cliente", dato);
+			}
+			function recibir(datos_recibidos){
+				var capa = document.getElementById("cargarMensajes");
+				var h1 = document.createElement("div");
+				h1.innerHTML = datos_recibidos;
+				capa.appendChild(h1);
+				//$(".mensajes").append(datos_recibidos);
+			}
+		</script>
     </body>
 </html>
