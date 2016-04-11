@@ -59,6 +59,16 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+input[type="submit"], select {
+    width: 75px;
+    background-color: blue;
+    padding: 5px 8px;
+    display: inline-block;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-left:0px;
+}
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {

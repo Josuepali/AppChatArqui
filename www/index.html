@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -44,17 +44,22 @@
 			<div id="deviceready" class="pedirDatos">
 				<br>
 				<p> Usuario </p>
-				<input type="text" name="usuario">
-				<br>
-				<p> Contrasena </p>
-				<input type="password" name="contrasena">
+				<input id="nombreUsu" type="text" name="usuario">
 				<br><br><br>
-				<a href="inicio.html" target="_self"><button class="button"> Iniciar </button> </a>
-				<a href="registrar.html" target="_self"> <button class="button"> Registrar </button> </a>
+                <input type="submit" onclick="iniciar()" value="Iniciar"/>
 				<br><br>
 			</div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://192.168.1.131:3000/socket.io/socket.io.js"></script>
+        <script>
+            function iniciar(){
+                var usu = $(".pedirDatos").find("#nombreUsu").val();
+                window.location = ("inicio.html?name=" + usu);
+                return false;
+            }
+        </script>
     </body>
 </html>

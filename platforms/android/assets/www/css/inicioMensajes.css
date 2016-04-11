@@ -56,6 +56,7 @@ body {
 	border-bottom-style: solid;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+	padding-top: 10px;
 }
 
 .button {
@@ -91,19 +92,33 @@ body {
 }
 
 .DatosUsuario {
-	margin-left: 160px;
-	margin-top: -95px;
+	font-size: 20px;
 }
 
-.mensajes{
+.mensajesEnviados{
 	font-size:15px;
-	margin-top: -15px;
+	margin-top: -5px;
 	text-align: right;
-	margin-right: 20px;
+	margin-right: 5px;
 }
 
-input[type=text], select {
+.SalirSeccion{
+		margin-left: 80%;
+		margin-top: -60px;
+}
+
+input[id="datos"], select {
 	width: 200px;
+	padding: 5px 8px;
+	display: inline-block;
+	border-radius: 8px;
+	box-sizing: border-box;
+	margin-left:0px;
+}
+
+input[type="submit"], select {
+	width: 75px;
+	background-color: blue;
 	padding: 5px 8px;
 	display: inline-block;
 	border-radius: 8px;
@@ -118,7 +133,7 @@ input[type=text], select {
 	   height: 30px;
         background-position:left center;
         padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+        margin:-160px 0px 0px -100px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
     }
 
@@ -129,14 +144,18 @@ input[type=text], select {
     }
 
 	.DatosUsuario {
-		margin-left: 230px;
-		margin-top: -125px;
-	}
-
-	.mensajes {
-		margin-top: -15px;
-		text-align: right;
-		margin-right: 10px;
+		width: 400px;
+		height: 80px;
+		border-top-style: solid;
+		border-left-style: solid;
+		border-right-style: solid;
+		border-bottom-style: solid;
+		margin-left: 125px;
+		margin-top: 50px;
+		background-color: blue;
+		color:white;
+		border-color: black;
+		padding-left: 15px;
 	}
 
 	.button {
@@ -145,9 +164,41 @@ input[type=text], select {
 		margin-left: 5px;
 	}
 
-	input[type=text], select{
-		width: 450px;
-		margin-left: 10px;
+	.mensajesEnviados{
+	font-size:15px;
+	margin-top: -5px;
+	text-align: right;
+	margin-right: 5px;
+	}
+
+	input[id="datos"], select {
+		width: 500px;
+		padding: 5px 8px;
+		display: inline-block;
+		border-radius: 8px;
+		box-sizing: border-box;
+		margin-left:0px;
+	}
+
+	input[type="submit"], select {
+		width: 75px;
+		background-color: blue;
+		padding: 5px 8px;
+		display: inline-block;
+		border-radius: 8px;
+		box-sizing: border-box;
+		margin-left:0px;
+	}
+
+	#botonSalir{
+		height: 100px;
+	}
+
+	.SalirSeccion{
+		width: 200px;
+		height: 100px;
+		margin-left: 120px;
+		margin-top: -120px;
 	}
 }
 
