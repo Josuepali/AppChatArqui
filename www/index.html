@@ -60,22 +60,22 @@
         <script src="http://192.168.1.131:3000/socket.io/socket.io.js"></script>
         <script>
             var db = openDatabase('LoginDB', '1.0', 'Guardar Usuarios', 2*1024*1024);
-            var resultadoObtenido;
-
+            var resultadoObtenido = "";
+            
+            var sql = "SELECT contrasena FROM Usuarios";
+            db.transaction(function(tx){
+                tx.executeSql(sql,[], function(tx, results){
+                    if (results.rows.length == 1){
+                        resultadoObtenido = results.rows.item(0)['contrasena'];
+                    }
+                }, function(tx, error){
+                    alert("Error");
+                }
+                );
+            });
+            
             function iniciar(){
                 var pass = document.getElementsByName("contrasena")[0].value;
-
-                var sql = "SELECT contrasena FROM Usuarios";
-                db.transaction(function(tx){
-                    tx.executeSql(sql,[], function(tx, results){
-                        if (results.rows.length == 1){
-                            resultadoObtenido = results.rows.item(0)['contrasena'];
-                        }
-                    }, function(tx, error){
-                        alert("Error");
-                    }
-                    );
-                });
                 if (pass == resultadoObtenido){
                     var usu = $(".pedirDatos").find("#nombreUsu").val();
                     window.location = ("inicio.html?name=" + usu);
@@ -83,7 +83,6 @@
                 else{
                     alert("Usuario o Contrasena incorrectas");
                 }
-                
             }
             function registrar(){
                 window.location = ("registrar.html");
