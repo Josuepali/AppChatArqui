@@ -45,7 +45,7 @@
 				<div class="mensajesEnviados" id="cargarMensajes">
 				</div>
 				<br><br>
-				<input id="datos" name="" placeholder="Escriba el msj..." required/></input>
+				<input id="datos" name="msg" placeholder="Escriba el msj..." required/></input>
 				<input type="submit" value="Enviar"/>
 				<br><br>
 			</div>
@@ -55,7 +55,7 @@
 		<input type="submit" id="botonSalir" onclick="salirS()" value="Salir">
 	</div>
 	<div class="DatosUsuario">
-		<h2> Usuarios Conectados </h2>
+		<h2> Historial de Conexiones </h2>
 	</div>
 	<div id="deviceready">
 		<div id="NombreUsuario">
@@ -80,6 +80,7 @@
 				e.preventDefault();
 				var dato = $("#CuadroMensajes").find("#datos").val();
 				socket.emit("datos_cliente", usuarioConectado + ": " + dato);
+				document.getElementsByName("msg")[0].value = "";
 			}
 			function recibir(datos_recibidos){
 				var capa = document.getElementById("cargarMensajes");
@@ -88,6 +89,7 @@
 				capa.appendChild(h1);
 			}
 			function cargar(list){
+				$("#NombreUsuario").empty()
 				for (var i = 0; i < list.length; i++) {
 					var divUser = document.getElementById("NombreUsuario");
 					var h2 = document.createElement("div");

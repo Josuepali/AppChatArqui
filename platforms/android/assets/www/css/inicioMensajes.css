@@ -23,7 +23,7 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     width:100%;
     overflow-y: auto;
 }
@@ -37,14 +37,15 @@ body {
     width:350px;                   /* text area width */
     text-align:center; 
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    margin:80px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
-}
+    float: bottom;
+	}
 
 .cuadroInicio {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	background-color: #005ce6;
+	background-color: #33d6ff;
 	border-top-style: solid;
 	border-left-style: solid;
 	border-right-style: solid;
@@ -92,7 +93,31 @@ body {
 }
 
 .DatosUsuario {
-	font-size: 20px;
+	width: 250px;
+	height: 50px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-left: 100px;
+	margin-top: 53px;
+	background-color: #33d6ff;
+	color:white;
+	border-color: black;
+	padding-left: 15px;
+}
+
+#NombreUsuario{
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	width: 265px;
+	margin-left: 100px;
+	margin-top: 0px;
+	text-align: center;
+	overflow-y: auto;
+	height: 250px;
 }
 
 .mensajesEnviados{
@@ -102,9 +127,17 @@ body {
 	margin-right: 5px;
 }
 
+#botonSalir{
+	width: 250px;
+	margin-top: 60px;
+	margin-left: -290px;
+}
+
 .SalirSeccion{
-		margin-left: 80%;
-		margin-top: -60px;
+	width: 200px;
+	height: 50px;
+	margin-left: 400px;
+	margin-top: -45px;
 }
 
 input[id="datos"], select {
@@ -118,12 +151,12 @@ input[id="datos"], select {
 
 input[type="submit"], select {
 	width: 75px;
-	background-color: blue;
 	padding: 5px 8px;
 	display: inline-block;
 	border-radius: 8px;
 	box-sizing: border-box;
 	margin-left:0px;
+	border-color: #33d6ff;
 }
 
 /* Landscape layout (with min-width) */
@@ -144,18 +177,27 @@ input[type="submit"], select {
     }
 
 	.DatosUsuario {
-		width: 400px;
-		height: 80px;
+		width: 300px;
+		height: 40px;
 		border-top-style: solid;
 		border-left-style: solid;
 		border-right-style: solid;
 		border-bottom-style: solid;
 		margin-left: 125px;
-		margin-top: 50px;
-		background-color: blue;
+		margin-top: 115px;
+		background-color: #33d6ff;
 		color:white;
-		border-color: black;
 		padding-left: 15px;
+	}
+
+	#NombreUsuario{
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-style: solid;
+	width: 315px;
+	margin-left: 125px;
+	margin-top: 0px;
+	text-align: center;
 	}
 
 	.button {
@@ -182,21 +224,23 @@ input[type="submit"], select {
 
 	input[type="submit"], select {
 		width: 75px;
-		background-color: blue;
 		padding: 5px 8px;
 		display: inline-block;
 		border-radius: 8px;
 		box-sizing: border-box;
 		margin-left:0px;
+		border-color: #33d6ff;
 	}
 
 	#botonSalir{
-		height: 100px;
+		width: 250px;
+		margin-top: 132px;
+		margin-left: 50px;
 	}
 
 	.SalirSeccion{
 		width: 200px;
-		height: 100px;
+		height: 50px;
 		margin-left: 120px;
 		margin-top: -120px;
 	}

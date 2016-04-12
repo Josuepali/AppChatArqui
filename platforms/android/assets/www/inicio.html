@@ -45,17 +45,21 @@
 				<div class="mensajesEnviados" id="cargarMensajes">
 				</div>
 				<br><br>
-				<input id="datos" name="" placeholder="Escriba el msj..." required/></input>
+				<input id="datos" name="msg" placeholder="Escriba el msj..." required/></input>
 				<input type="submit" value="Enviar"/>
 				<br><br>
 			</div>
 		</form>
      </div>
-	<div class="DatosUsuario">
-		<h2> Usuarios Conectados </h2>
-	</div>
-	<div class="SalirSeccion">
+    <div class="SalirSeccion">
 		<input type="submit" id="botonSalir" onclick="salirS()" value="Salir">
+	</div>
+	<div class="DatosUsuario">
+		<h2> Historial de Conexiones </h2>
+	</div>
+	<div id="deviceready">
+		<div id="NombreUsuario">
+		</div>
 	</div>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
@@ -67,6 +71,8 @@
 
 			function inicio(){
 				$("#CuadroMensajes").on("submit", enviar);
+				socket.emit("nickname", usuarioConectado);
+				socket.on("listaUser", cargar);
 				socket.on("datos_servidor", recibir);
 				socket.emit("datos_cliente", usuarioConectado + " " + "se ha unido");
 			}
@@ -74,12 +80,22 @@
 				e.preventDefault();
 				var dato = $("#CuadroMensajes").find("#datos").val();
 				socket.emit("datos_cliente", usuarioConectado + ": " + dato);
+				document.getElementsByName("msg")[0].value = "";
 			}
 			function recibir(datos_recibidos){
 				var capa = document.getElementById("cargarMensajes");
-				var h1 = document.createElement("div");
+				var h1 = document.createElement("p");
 				h1.innerHTML = datos_recibidos;
 				capa.appendChild(h1);
+			}
+			function cargar(list){
+				$("#NombreUsuario").empty()
+				for (var i = 0; i < list.length; i++) {
+					var divUser = document.getElementById("NombreUsuario");
+					var h2 = document.createElement("div");
+					h2.innerHTML = list[i];
+					divUser.appendChild(h2);
+				}
 			}
 
 			function salirS(){

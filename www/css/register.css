@@ -41,6 +41,16 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+input[type="submit"], select {
+    width: 75px;
+    padding: 5px 8px;
+    display: inline-block;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-left:0px;
+    border-color: #33d6ff;
+}
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
@@ -99,7 +109,7 @@ h1 {
 .cuadroInicio {
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
-	background-color: #005ce6;
+	background-color: #33d6ff;
 	border-top-style: solid;
 	border-left-style: solid;
 	border-right-style: solid;
